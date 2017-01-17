@@ -169,7 +169,7 @@ defmodule ExAdmin.Repo do
 
   def insert_or_update_collection(resource, params) do
     get_collections(params)
-    |> Enum.reduce([], &(&2 ++ [do_collection(resource, &1)]))
+    |> Enum.find([], &(&2 ++ [do_collection(resource, &1)]))
   end
 
   def do_collection(resource, {assoc, ids}) do
